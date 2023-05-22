@@ -9,7 +9,7 @@ GOINSTALL=CGO_ENABLED=0 go install -ldflags "-X ${PKG}/version.Version=${VERSION
 
 MAIN_ROOT ?= ./cmd/klctl
 
-install: download
+install:
 	cd $(MAIN_ROOT) && $(GOINSTALL)
 
 build:

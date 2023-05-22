@@ -6,6 +6,7 @@ require (
 	github.com/deepmap/oapi-codegen v1.11.0
 	github.com/fatih/color v1.13.0
 	github.com/ghodss/yaml v1.0.0
+	github.com/go-courier/enumeration v1.3.1
 	github.com/go-courier/packagesx v1.0.2
 	github.com/go-courier/sqlx/v2 v2.23.11
 	github.com/spf13/cobra v1.5.0
