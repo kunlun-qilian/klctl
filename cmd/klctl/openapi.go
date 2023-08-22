@@ -3,6 +3,9 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"github.com/kunlun-qilian/klctl/internal/generate"
+	"os"
+	"strings"
 
 	"github.com/ghodss/yaml"
 
@@ -34,11 +37,13 @@ func init() {
 }
 
 func SwaggerToOpenapi() {
-	swaggerFileByte, err := ioutil.ReadFile(swaggerFile)
+	swaggerFileByte, err := os.ReadFile(swaggerFile)
 	if err != nil {
 		panic(err)
 	}
-	y, err := yaml.JSONToYAML(swaggerFileByte)
+	newSwaggerFileByte := changeEnum(swaggerFileByte)
+
+	y, err := yaml.JSONToYAML(newSwaggerFileByte)
 	if err != nil {
 		panic(err)
 	}
@@ -66,4 +71,36 @@ func SwaggerToOpenapi() {
 	if err != nil {
 		panic(err)
 	}
+}
+
+var (
+	TYPESKEY_ENUM            = `enum`
+	TYPESKEY_TYPE            = `type`
+	TYPESKEY_x_ENUM_VARNAMES = `x-enum-varnames`
+)
+
+func changeEnum(swaggerFile []byte) []byte {
+	swagger := generate.Swagger{}
+	err := json.Unmarshal(swaggerFile, &swagger)
+	if err != nil {
+		panic(err)
+	}
+	for k, v := range swagger.Definitions {
+		if strings.Contains(k, "types.") {
+			v[TYPESKEY_TYPE] = "string"
+			v[TYPESKEY_ENUM] = []interface{}{}
+			for _, xEnumVarName := range v[TYPESKEY_x_ENUM_VARNAMES].([]interface{}) {
+				enumName := xEnumVarName.(string)
+				if strings.Contains(enumName, "__") {
+					v[TYPESKEY_ENUM] = append(v[TYPESKEY_ENUM].([]interface{}), strings.Split(xEnumVarName.(string), "__")[1])
+				}
+			}
+		}
+	}
+
+	swaggerJson, err := json.MarshalIndent(swagger, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	return swaggerJson
 }
