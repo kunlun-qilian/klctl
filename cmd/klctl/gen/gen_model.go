@@ -2,8 +2,8 @@ package gen
 
 import (
 	"github.com/go-courier/packagesx"
-	"github.com/go-courier/sqlx/v2/generator"
 	"github.com/kunlun-qilian/klctl/internal/generate"
+	"github.com/kunlun-qilian/sqlx/v3/generator"
 	"github.com/spf13/cobra"
 )
 

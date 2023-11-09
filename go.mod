@@ -8,14 +8,14 @@ require (
 	github.com/ghodss/yaml v1.0.0
 	github.com/go-courier/enumeration v1.3.1
 	github.com/go-courier/packagesx v1.0.2
-	github.com/go-courier/sqlx/v2 v2.23.11
+	github.com/kunlun-qilian/sqlx/v3 v3.0.0
 	github.com/spf13/cobra v1.5.0
 )
 
 require (
 	github.com/getkin/kin-openapi v0.117.0 // indirect
 	github.com/go-courier/codegen v1.1.2 // indirect
-	github.com/go-courier/x v0.0.10 // indirect
+	github.com/go-courier/x v0.1.2 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/swag v0.21.1 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
@@ -32,12 +32,12 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
-	golang.org/x/crypto v0.9.0 // indirect
-	golang.org/x/mod v0.10.0 // indirect
-	golang.org/x/net v0.10.0 // indirect
-	golang.org/x/sys v0.8.0 // indirect
-	golang.org/x/text v0.9.0 // indirect
-	golang.org/x/tools v0.9.2 // indirect
+	golang.org/x/crypto v0.15.0 // indirect
+	golang.org/x/mod v0.12.0 // indirect
+	golang.org/x/net v0.18.0 // indirect
+	golang.org/x/sys v0.14.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/tools v0.12.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
