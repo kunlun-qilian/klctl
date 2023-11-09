@@ -1,6 +1,6 @@
 module github.com/kunlun-qilian/klctl
 
-go 1.17
+go 1.19
 
 require (
 	github.com/deepmap/oapi-codegen v1.13.0
